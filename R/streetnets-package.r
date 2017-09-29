@@ -16,6 +16,7 @@
 #' @name streetnet
 #' @docType package
 #' @author Mark Padgham
+#' @importFrom dodgr weight_streetnet
 #' @importFrom magrittr %>%
 #' @importFrom osmdata add_osm_feature opq osmdata_sf
 NULL

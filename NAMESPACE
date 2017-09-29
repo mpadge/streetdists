@@ -3,6 +3,7 @@
 export(city_bb)
 export(get_all_networks)
 export(get_streetnet)
+importFrom(dodgr,weight_streetnet)
 importFrom(magrittr,"%>%")
 importFrom(osmdata,add_osm_feature)
 importFrom(osmdata,opq)

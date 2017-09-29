@@ -23,7 +23,7 @@ get_streetnet <- function (city)
             osmdata::add_osm_feature (key = "highway") %>%
             osmdata::osmdata_sf (quiet = FALSE)
 
-    return (dat$osm_lines)
+    dodgr::weight_streenet (dat$osmlines, profile = "bicycle")
 }
 
 #' get_all_networks
