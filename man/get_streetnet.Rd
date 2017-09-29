@@ -10,6 +10,13 @@ get_streetnet(city)
 \item{city}{(in standard two-letter \code{bikedat} form: "lo", "ny", "bo",
 "ch", "dc", or "la").}
 }
+\value{
+\code{sf data.frame} of the street network.
+}
 \description{
 Get the street network for a particular city
+}
+\note{
+The problematic cities like Boston probably need sf to be loaded into
+the workspace to work properly?
 }
