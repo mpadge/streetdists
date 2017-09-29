@@ -39,13 +39,13 @@ city_bb <- function (city, expand = 0)
 }
 
 # hard-coded values obtained with this code
-citybb <- function (city)
-{
-    bikedb <- "/data/data/bikes/all_bike_data.sqlite"
-    stns <- bike_stations (bikedb, city = city)
-    indx <- which (abs (stns$longitude) > 0.1 & abs (stns$latitude) > 0.1)
-    stns <- stns [indx, ]
-    if (city == "bo") # one strange station
-        stns <- stns [which (stns$longitude > -73 & stns$latitude < 45), ]
-    rbind (range (stns$longitude), range (stns$latitude))
-}
+# citybb <- function (city)
+# {
+#     bikedb <- "/data/data/bikes/all_bike_data.sqlite"
+#     stns <- bike_stations (bikedb, city = city)
+#     indx <- which (abs (stns$longitude) > 0.1 & abs (stns$latitude) > 0.1)
+#     stns <- stns [indx, ]
+#     if (city == "bo") # one strange station
+#         stns <- stns [which (stns$longitude > -73 & stns$latitude < 45), ]
+#     rbind (range (stns$longitude), range (stns$latitude))
+# }
