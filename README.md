@@ -15,3 +15,20 @@ You can install streetnets from github with:
 # install.packages("devtools")
 devtools::install_github("mpadge/streetnets")
 ```
+
+Usage
+-----
+
+Extract a single street network for London, New York, Chicago, Philadelphia, Washington DC, Boston, or Los Angeles (respectively "ny", "ch", "ph", "dc", "bo", and "la") like this:
+
+``` r
+net <- get_streetnet ("ny")
+```
+
+Or save all to disk with
+
+``` r
+get_all_networks ()
+```
+
+Street networks are returned as simple `data.frame` objects of a form ready to submit to [`dodgr`](https://github.com/gmost/dodgr) routines for calculating distances. See the [`dodgr` vignette](https://gmost.github.io/dodgr/articles/dodgr.html) for more information.
