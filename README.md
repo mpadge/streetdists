@@ -1,4 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Build Status](https://travis-ci.org/mpadge/streetnets.svg)](https://travis-ci.org/mpadge/streetnets) [![Project Status: Active](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+
 streetnets
 ==========
 
