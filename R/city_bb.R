@@ -15,8 +15,8 @@ city_bb <- function (city, expand = 0)
         stop (paste ("city must be one of [", cities, "]"))
 
     bb <- list ()
-    bb [[1]] <- rbind (c (-73.56692, -71.00621),
-                       c (42.30347,  45.50509))
+    bb [[1]] <- rbind (c (-71.16637, -71.00621),
+                       c (42.30347, 42.40449))
     bb [[2]] <- rbind (c (-87.80287, -87.54939),
                        c (41.73665,  42.06400))
     bb [[3]] <- rbind (c (-77.36842, -76.91356),
@@ -39,11 +39,13 @@ city_bb <- function (city, expand = 0)
 }
 
 # hard-coded values obtained with this code
-# citybb <- function (city)
-# {
-#     bikedb <- "/data/data/bikes/all_bike_data.sqlite"
-#     stns <- bike_stations (bikedb, city = city)
-#     indx <- which (abs (stns$longitude) > 0.1 & abs (stns$latitude) > 0.1)
-#     stns <- stns [indx, ]
-#     rbind (range (stns$longitude), range (stns$latitude))
-# }
+citybb <- function (city)
+{
+    bikedb <- "/data/data/bikes/all_bike_data.sqlite"
+    stns <- bike_stations (bikedb, city = city)
+    indx <- which (abs (stns$longitude) > 0.1 & abs (stns$latitude) > 0.1)
+    stns <- stns [indx, ]
+    if (city == "bo") # one strange station
+        stns <- stns [which (stns$longitude > -73 & stns$latitude < 45), ]
+    rbind (range (stns$longitude), range (stns$latitude))
+}

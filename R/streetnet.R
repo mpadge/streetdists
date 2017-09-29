@@ -18,43 +18,12 @@ get_streetnet <- function (city)
 
     bbox <- city_bb (city)
 
-    hard_cities <- c ("bo")
-    easy_cities <- cities [which (!cities %in% hard_cities)]
-    if (city %in% easy_cities)
-    {
-
-        dat <- osmdata::opq (bbox, timeout = 1000,
-                    memsize = 1073741824) %>%
+    dat <- osmdata::opq (bbox, timeout = 1000,
+                         memsize = 1073741824) %>%
             osmdata::add_osm_feature (key = "highway") %>%
             osmdata::osmdata_sf (quiet = FALSE)
-        dat <- dat$osm_lines
-    } else if (city == "bo")
-    {
-        # residential first because it's the largest and most likely to fail
-        vals <- c ("residential", "primary", "secondary", "tertiary",
-                   "unclassified", "path", "motorway")
-        nets <- list ()
-        for (v in vals)
-        {
-            message ("---Extracting ", v, " highways")
-            qry <- opq (bbox, timeout = 1000, memsize = 1073741824) %>%
-                add_osm_feature (key = "highway", value = v)
-            nets <- c (nets, osmdata_sf (qry, quiet = FALSE)$osm_lines)
-        }
 
-        # Then all the rest:
-        qry <- opq (bbox, timeout=1000, memsize = 1073741824)
-        for (v in vals)
-            qry <- add_osm_feature (qry, key = "highway",
-                                    value = paste0 ("!", v))
-        nets <- c (nets, osmdata_sf (qry, quiet = FALSE)$osm_lines)
-
-        dat <- nets [[1]]
-        nets [[1]] <- NULL
-        for (n in nets)
-            dat <- c (dat, n)
-    }
-    return (dat)
+    return (dat$osm_lines)
 }
 
 #' get_all_networks
