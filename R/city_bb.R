@@ -37,3 +37,13 @@ city_bb <- function (city, expand = 0)
 
     return (bb)
 }
+
+# hard-coded values obtained with this code
+# citybb <- function (city)
+# {
+#     bikedb <- "/data/data/bikes/all_bike_data.sqlite"
+#     stns <- bike_stations (bikedb, city = city)
+#     indx <- which (abs (stns$longitude) > 0.1 & abs (stns$latitude) > 0.1)
+#     stns <- stns [indx, ]
+#     rbind (range (stns$longitude), range (stns$latitude))
+# }
