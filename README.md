@@ -1,19 +1,19 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Build Status](https://travis-ci.org/mpadge/streetnets.svg)](https://travis-ci.org/mpadge/streetnets) [![Project Status: Active](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Build Status](https://travis-ci.org/mpadge/streetdists.svg)](https://travis-ci.org/mpadge/streetdists) [![Project Status: Active](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-streetnets
-==========
+streetdists
+===========
 
-Extract OpenStreetMap street networks using the [`osmdata` package](https://github.com/ropensci/osmdata) for cities represented in the [`bikedata` package](https://github.com/ropensci/bikedata).
+Calculate pair-wise distances between all pairs of bicycle hire docking stations represented in the [`bikedata` package](https://github.com/ropensci/bikedata), by routing using the [`dodgr` package](https://github.com/gmost/dodgr) through the corresponding OpenStreetMap street networks extracted using the [`osmdata` package](https://github.com/ropensci/osmdata).
 
 Installation
 ------------
 
-You can install streetnets from github with:
+You can install streetdists from github with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("mpadge/streetnets")
+devtools::install_github("mpadge/streetdists")
 ```
 
 Usage
